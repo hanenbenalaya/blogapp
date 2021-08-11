@@ -1,0 +1,37 @@
+.red {
+    background-color: rgb(156, 78, 68); 
+}
+
+.blue {
+    background-color: rgb(45, 90, 107);
+}
+.txt {
+    color: rgb(252, 252, 252);
+}
+.green {
+    background-color: rgb(64, 156, 95);
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }

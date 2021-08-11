@@ -1,0 +1,76 @@
+<div class="example-header">
+    <div>
+    <h2 id="page-heading" class="center">
+        <h1>Blogs</h1>
+
+       
+    </h2>
+    <div class="example-container mat-elevation-z8" id="entities" *ngIf="blogs && blogs.length > 0">
+        <table   class="table">
+            <thead class="thead-dark">
+                <tr  >
+                    <th scope="col"  ><span>ID</span> </th>
+                    <th scope="col"  ><span>Title</span><br><input (keyup.enter)="ListBlogs(currentSelectedPage)" [(ngModel)]="searchtexttitle" placeholder="search "> </th>
+                    <th scope="col"  ><span>Content</span><br><input (keyup.enter)="ListBlogs(currentSelectedPage)" [(ngModel)]="searchtextcontent" placeholder="search "></th>
+                    <th scope="col" ><span>Author</span><br><input (keyup.enter)="ListBlogs(currentSelectedPage)" [(ngModel)]="searchtextauthor" placeholder="search "></th>
+                    <th scope="col" ><span>Upvote</span> </th>
+                    <th scope="col"  ><span>Downvote</span></th>
+                    <th scope="col">  <div class="btn-group center"><button routerLink="/add"id="create-blog"  class="navbar-toggler center" class="btn btn-info btn-sm">
+            
+                        Create a new Blog
+                        
+                    </button></div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blog of blogs " [ngClass]="{'red':blog.downvote>blog.upvote,'green':blog.upvote>blog.downvote,'blue':blog.upvote==blog.downvote}">
+                    <td class="txt" >{{ blog.id }}</td>
+                    <td class="txt">{{ blog.title }}</td>
+                    <td class="txt">{{ blog.content| slice:0:8 }}</td>
+                    <td class="txt">{{ blog.author }}</td>
+                    <td> <div class="text-center" >
+                      
+                      
+                            <button class="navbar-toggler"  class="text-center" (click)="incrementupvote(blog)" class="btn btn-primary btn-sm float-center">
+                         +
+                        </button>
+                        
+ 
+                     </div></td>
+                    <td><div class="text-center" >
+                        
+                      
+                        <button class="navbar-toggler" (click)="incrementdownvote(blog)" class="btn btn-primary btn-sm float-centre">
+                     - </button>
+ 
+                     
+                     </div></td>
+                    
+                    <td class="text-right">
+                        <div class="btn-group center">
+                            <button  class="navbar-toggler center" type="submit"
+                                    
+                            routerLink="/blogs/{{blog.id}}"   class="btn btn-info btn-sm">
+                                <span class="d-none d-md-inline">Continue reading</span>
+                            </button>
+
+
+                
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" *ngIf="firstpage==false"><a class="page-link"(click)="previousClick()">Previous</a></li>
+          <li *ngFor='let index of pageOfItems' class="page-item" > {{index + 1}}
+                    
+        </li>
+          <li class="page-item" *ngIf="lastpage==false"><a class="page-link" (click)="nextClick()">Next</a></li>
+        </ul>
+      </nav>
+</div>
+</div>

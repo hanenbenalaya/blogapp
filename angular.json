@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "blogapp"
+    }
+  },
+  "defaultProject": "blogapp",
+  "cli": {
+    "analytics": false
+  }
 }
